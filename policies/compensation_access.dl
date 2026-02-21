@@ -20,10 +20,23 @@ SensitiveDoc(compensation_strategy).
 % STRATUM 1: Allowed (direct access grants)
 % ================================================================
 
+% Any authenticated entity may list available documents (listing
+% reveals only names, not content — not a sensitive operation).
+Allowed(Entity, list_documents, all) :-
+    EntityRole(Entity, _),
+    PendingAction(_, list_documents, Entity).
+
 % A VP may read any sensitive document directly.
 Allowed(Entity, read_document, Doc) :-
     EntityRole(Entity, vp),
     SensitiveDoc(Doc),
+    ActionArg(_, doc_id, Doc),
+    PendingAction(_, read_document, Entity).
+
+% Any entity may read non-sensitive documents.
+Allowed(Entity, read_document, Doc) :-
+    EntityRole(Entity, _),
+    not SensitiveDoc(Doc),
     ActionArg(_, doc_id, Doc),
     PendingAction(_, read_document, Entity).
 
