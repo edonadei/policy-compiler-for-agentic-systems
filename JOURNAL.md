@@ -73,7 +73,7 @@ The `authorize(action, graph, policy_rules, entity_roles)` function:
 
 ### 2026-02-21 — Run 1
 
-**Model:** `gemini-2.0-flash-preview` via Google Gemini API (OpenAI-compat endpoint)
+**Model:** `gemini-3-flash-preview` via Google Gemini API (OpenAI-compat endpoint)
 
 **Command:** `python demo/scenario.py`
 

@@ -30,7 +30,7 @@ from .reference_monitor import Action, ReferenceMonitor
 load_dotenv()
 
 MAX_ITERATIONS = int(os.getenv("PCAS_MAX_ITERATIONS", "10"))
-DEFAULT_MODEL = os.getenv("PCAS_MODEL", "gemini-2.0-flash-preview")
+DEFAULT_MODEL = os.getenv("PCAS_MODEL", "gemini-3-flash-preview")
 GOOGLE_API_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
 
